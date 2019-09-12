@@ -1,5 +1,6 @@
-rem wow_backup.bat backup characters.sql and GatherMate.lua for Wow
-rem notice: the file should be put to the same place with 7z.exe and 7z.dll
+rem wow_git_backup.bat backup characters.sql and GatherMate.lua for Wow
+rem notice: the file should be put to the same place with characters.sql and GatherMate.lua
+rem and git must prepare and pull finish
 
 rem set variables
 set gather_file_path="D:\Eric\entertainment\games\wow\World of Warcraft\WTF\Account\ERIC\SavedVariables\GatherMate.lua"
@@ -22,17 +23,16 @@ rem del /Q characters.sql
 rem del /Q GatherMate.lua
 
 rem dump sql from mysql
-rem set path=%path%;%mysql_path%
-rem mysqldump -u mangos -pmangos characters > characters.sql
+set path=%path%;%mysql_path%
+mysqldump -u mangos -pmangos characters > characters.sql
 
 rem copy files to the folder 
-rem copy /Y %gather_file_path% .
+copy /Y %gather_file_path% .
 
 rem submit to git repo
-git pull
+rem git pull	rem !!!this step should finish before backup!!!
 git add .
-rem git cm "%commit_name%"
-git cm "backup-2019-09-10-1:13:27"
+git cm "%commit_name%"
 git push
 
 rem pause
