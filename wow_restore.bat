@@ -6,8 +6,7 @@ set /p UserInput=are you sure restore all backup (Y/N)?
 IF [%UserInput%] EQU  [n]  ( GOTO:EOF)
 
 rem set variables
-set gather_file_path="D:\Eric\entertainment\games\wow\World of Warcraft\WTF\Account\ERIC\SavedVariables\GatherMate.lua"
-set mysql_path=C:\mnt\MGCN\mysql\bin
+call env.bat
 
 rem copy GatherMate to the folder 
 copy /Y .\GatherMate.lua %gather_file_path%

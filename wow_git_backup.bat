@@ -1,10 +1,10 @@
 rem wow_git_backup.bat backup characters.sql and GatherMate.lua for Wow
 rem notice: the file should be put to the same place with characters.sql and GatherMate.lua
 rem and git must prepare and pull finish
+@echo off
 
 rem set variables
-set gather_file_path="D:\Eric\entertainment\games\wow\World of Warcraft\WTF\Account\ERIC\SavedVariables\GatherMate.lua"
-set mysql_path=C:\mnt\MGCN\mysql\bin
+call env.bat
 
 rem make stamps
 rem cut off fractional seconds
