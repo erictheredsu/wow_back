@@ -8,6 +8,8 @@ IF [%UserInput%] EQU  [n]  ( GOTO:EOF)
 rem set variables
 call env.bat
 
+git pull
+
 rem copy GatherMate to the folder 
 copy /Y .\GatherMate.lua %gather_file_path%
 
