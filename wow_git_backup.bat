@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 rem wow_git_backup.bat backup characters.sql and GatherMate.lua for Wow
 rem notice: the file should be put to the same place with characters.sql and GatherMate.lua
 rem and git must prepare and pull finish
@@ -9,7 +9,8 @@ call env.bat
 if "%region%"=="en" goto Stamp_EN else goto Stamp_CN
 
 :Stamp_EN
-rem make stamps eg: Th 2019/09/13
+rem make stamps eg: 2019-09-13 or  2019/09/13 Th, 
+rem in Control panel->region set short date to yyyy-MM-dd will work, not relevent to Chinese or US
 set t=%time:~0,8%
 rem replace colons with dashes
 rem set t=%t::=-%
@@ -25,7 +26,7 @@ echo %commit_name%
 goto dojob
 
 :Stamp_CN 
-rem make stamps eg:2019/09/13 周五
+rem make stamps eg:周五 2019/09/13 
 rem cut off fractional seconds
 set t=%time:~0,8%
 rem replace colons with dashes
@@ -42,7 +43,7 @@ goto dojob
 :dojob
 echo "dump sql and copy lur, then push to github..."
 
-rem goto:eof
+goto:eof
 
 rem delete old files
 rem del /Q characters.sql
