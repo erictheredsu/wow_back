@@ -6,9 +6,8 @@ rem and git must prepare and pull finish
 rem set variables
 call env.bat
 
-if "%region%"=="en" goto Stamp_EN else goto Stamp_CN
+rem if "%region%"=="en" (goto Stamp_EN) else goto Stamp_CN
 
-:Stamp_EN
 rem make stamps eg: 2019-09-13 or  2019/09/13 Th, 
 rem in Control panel->region set short date to yyyy-MM-dd will work, not relevent to Chinese or US
 set t=%time:~0,8%
@@ -17,21 +16,6 @@ rem set t=%t::=-%
 set d=%date:~0,10%
 rem replace slashes with dashes
 set d=%d:/=-%
-set TimeStemp=%d%-%t%
-rem remove spaces
-set TimeStemp=%TimeStemp: =%
-set commit_name=backup-%TimeStemp%
-echo %commit_name%
-
-goto dojob
-
-:Stamp_CN 
-rem make stamps eg:周五 2019/09/13 
-rem cut off fractional seconds
-set t=%time:~0,8%
-rem replace colons with dashes
-rem set t=%t::=%
-set d=%DATE:~3,4%-%DATE:~8,2%-%DATE:~11,2%
 set TimeStemp=%d%-%t%
 rem remove spaces
 set TimeStemp=%TimeStemp: =%

@@ -12,10 +12,12 @@ git pull
 
 rem copy GatherMate to the folder 
 copy /Y .\GatherMate.lua %gather_file_path%
+echo copy GatherMate.lua finish!
 
 rem restore dump to mysql
 set path=%path%;%mysql_path%
 mysql -u mangos --password="mangos" characters  < characters.sql
+echo restore mysql finish!
 
 echo restore finish!
-rem pause
+pause
